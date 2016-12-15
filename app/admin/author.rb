@@ -13,5 +13,8 @@ ActiveAdmin.register Author do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+  index do
+    column :id
+    column :last_name
+    end
 end
