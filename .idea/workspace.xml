@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="403633e1-b444-4867-af2f-20bf0a72c62f" name="Default" comment="book subfields test,">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/activeadmin.iml" afterPath="$PROJECT_DIR$/.idea/activeadmin.iml" />
+    <list default="true" id="403633e1-b444-4867-af2f-20bf0a72c62f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/cairo-unicode.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/item_type.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/item_types_controller.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/item_type.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20170117143028_create_item_types.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/models/item_type_test.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/book.rb" afterPath="$PROJECT_DIR$/app/admin/book.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/dashboard.rb" afterPath="$PROJECT_DIR$/app/admin/dashboard.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/report.rb" afterPath="$PROJECT_DIR$/app/admin/report.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/reporting.rb" afterPath="$PROJECT_DIR$/app/admin/reporting.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="activeadmin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -124,8 +122,8 @@
       <file leaf-file-name="report.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/admin/report.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="95" column="17" lean-forward="false" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+            <state relative-caret-position="457">
+              <caret line="96" column="29" lean-forward="false" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -878,7 +876,7 @@
       <workItem from="1484659917107" duration="4807000" />
       <workItem from="1484727889065" duration="5590000" />
       <workItem from="1484746586290" duration="6793000" />
-      <workItem from="1484813659396" duration="15486000" />
+      <workItem from="1484813659396" duration="15858000" />
     </task>
     <task id="LOCAL-00001" summary="Modelle und daten hinzugefügt">
       <created>1480598463257</created>
@@ -894,17 +892,24 @@
       <option name="project" value="LOCAL" />
       <updated>1480677170495</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="book subfields, item_types test, ocr test">
+      <created>1484839834619</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1484839834619</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186190000" />
+    <option name="totallyTimeSpent" value="186562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2235" y="52" width="1588" height="985" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30793452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30793452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.091939546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -941,7 +946,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modelle und daten hinzugefügt" />
     <MESSAGE value="dropdown author und Genre error unpermitted ID fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="dropdown author und Genre error unpermitted ID fixed" />
+    <MESSAGE value="book subfields, item_types test, ocr test" />
+    <option name="LAST_COMMIT_MESSAGE" value="book subfields, item_types test, ocr test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1282,8 +1288,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/report.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="95" column="17" lean-forward="false" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        <state relative-caret-position="457">
+          <caret line="96" column="29" lean-forward="false" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
           <folding />
         </state>
       </provider>

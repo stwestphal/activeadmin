@@ -93,7 +93,8 @@ ActiveAdmin.register_page "Report" do
         end
       end
 
-      filename = "data/cairo-unicode.pdf"
+      #filename = File.expand_path(File.dirname(__FILE__)) + "data/cairo-unicode.pdf"
+      filename = "data/cairo-multiline.pdf"
       #filename = "data/1066848_Storno_2015-12-02_13253.pdf"
       #filename = "data/0_Vertrag_2016-11-02_13748.pdf"
       panel "pdf lesen:" do
