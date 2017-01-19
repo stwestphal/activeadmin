@@ -24,6 +24,7 @@ ActiveAdmin.register Reporting do
       end
       column "Vorname", :first_name
       column :created_at
+      # date_select(:created_at, null,discard_day,null)
       end
   end
 

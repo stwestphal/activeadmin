@@ -33,7 +33,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    section "Genres", :priority =>1 do
+    section "Genres" do
       table_for Genre.order("id desc").limit(10) do
         column :id
         column "Type", :name do |name|
