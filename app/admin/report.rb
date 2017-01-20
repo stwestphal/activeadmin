@@ -115,7 +115,12 @@ ActiveAdmin.register_page "Report" do
         end
       end
 
-  end
+    end
+
+    table_for Author.order("id desc").limit(10) do
+      column :last_name
+      column :first_name
+    end
 
   end
 end

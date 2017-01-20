@@ -1,5 +1,6 @@
 ActiveAdmin.register Book do
-  permit_params  :name, :price, :author, :genre, :author_id, :genre_id
+  permit_params  :name, :price, :author, :genre, :author_id, :genre_id, :id
+
   #menu priority: 1
   #menu parent: "Authors"
 
@@ -31,7 +32,7 @@ ActiveAdmin.register Book do
     end
   end
 
-  #defines the generated html-colums for index-page:
+  # defines the generated html-colums for index-page:
   index do
     column :name
     column :author
@@ -41,9 +42,22 @@ ActiveAdmin.register Book do
     actions
   end
 
-  rows = [['1 Grundgebühr'], ['2 Monatsgebühr'], ['3 Buchung']]
+ rows=""
+  # ite =proc {ItemObject.distinct.pluck :item_type.to_s}
+  ite =ItemObject.distinct.pluck :item_type, :netto_price
+           ite.each do |a|
+              rows+=a
+           end
+  # ite =ItemObject.select(:item_type)
+  # rows = @book.item_objects
+  # orders.select{ |o| o.customer.id == customer_id }
+  # rows = ItemObject.select{ |i| i.book.id == book_id}
+  # count = ItemObject.all.params[:ids].count
+
   # neues eigenes form fuer die view-funktion
   show do
+    book_id = Book.find(params[:id]).id
+
     attributes_table do
       row :id
       row :name
@@ -52,10 +66,10 @@ ActiveAdmin.register Book do
       row :genre
       row "items" do
         table do
-          rows.each do |r|
+          (0..2).each do |r|
             tr do
-              th r
-              td "ta"
+              th ite.to_s
+              td book_id
             end
           end
         end

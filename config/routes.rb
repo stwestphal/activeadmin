@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :item_objects
   resources :item_types
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
