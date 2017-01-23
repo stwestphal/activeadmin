@@ -117,9 +117,9 @@ ActiveAdmin.register_page "Report" do
 
     end
 
-    table_for Author.order("id desc").limit(10) do
-      column :last_name
-      column :first_name
+    table_for ItemObject.order("id desc").limit(10) do
+      column :item_type
+      column :netto_price
     end
 
   end

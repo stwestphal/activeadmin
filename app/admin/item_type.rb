@@ -1,6 +1,6 @@
 ActiveAdmin.register ItemType do
 
-  permit_params :name, :description, :accounting_number, :active_flag
+  permit_params :name, :description, :accounting_number, :active_flag, :id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

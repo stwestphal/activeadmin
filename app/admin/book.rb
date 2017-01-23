@@ -44,10 +44,7 @@ ActiveAdmin.register Book do
 
  rows=""
   # ite =proc {ItemObject.distinct.pluck :item_type.to_s}
-  ite =ItemObject.distinct.pluck :item_type, :netto_price
-           ite.each do |a|
-              rows+=a
-           end
+  #ite = ItemObject.pluck :item_type_id, :book_id, :position, :netto_price, :amount, :description
   # ite =ItemObject.select(:item_type)
   # rows = @book.item_objects
   # orders.select{ |o| o.customer.id == customer_id }
@@ -57,6 +54,14 @@ ActiveAdmin.register Book do
   # neues eigenes form fuer die view-funktion
   show do
     book_id = Book.find(params[:id]).id
+    ite = ItemObject.select{ |i| i.book_id == book_id}
+    itemtype_id = 1
+    itemtype = ItemType.select{ |i| i.id == itemtype_id}
+    itemtype = ItemType.find(params[:id]).name
+    ite = ite.pluck :item_type_id, :book_id, :position, :netto_price, :amount, :description
+     ite.each do |a|
+      rows+=a.to_s
+    end
 
     attributes_table do
       row :id
@@ -64,12 +69,21 @@ ActiveAdmin.register Book do
       row :price
       row :author
       row :genre
+      row :item_objects do |item|
+        table_for item.item_objects.order("position").limit(10), sortable: true do
+            column :position
+            column :id
+            column :description
+            column :name
+        end
+      end
+
       row "items" do
         table do
-          (0..2).each do |r|
+          ite.each do |r|
             tr do
-              th ite.to_s
-              td book_id
+              th r.to_s
+              td itemtype.to_s
             end
           end
         end

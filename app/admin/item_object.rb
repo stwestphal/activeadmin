@@ -1,5 +1,5 @@
 ActiveAdmin.register ItemObject do
-  permit_params :book_id, :position, :item_type_id, :netto_price, :amount, :description
+  permit_params :book, :position, :item_type, :netto_price, :amount, :description, :book_id, :item_type_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

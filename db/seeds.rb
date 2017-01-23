@@ -17,3 +17,8 @@ ohba = Author.create! :first_name => "Tsugumi", :last_name => "Ohba"
 
 Book.create! :name => "The Hunger Games", :price => 20.00, :author => collins, :genre => fantasy
 Book.create! :name => "Death Note", :price => 20.00, :author => ohba, :genre => crime
+
+ItemType.create! :name => "Grundgebühr", :accounting_number => 7060110
+ItemType.create! :name => "Einrichtungsgebühr", :accounting_number => 7060510
+ItemType.create! :name => "Transaktionsumsatz", :accounting_number => 7060610
+ItemType.create! :name => "nachträgliche Änderungen", :accounting_number => 7080550
