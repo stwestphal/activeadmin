@@ -1,5 +1,6 @@
 ActiveAdmin.register Book do
-  permit_params  :name, :price, :author, :genre, :author_id, :genre_id, :id
+  permit_params  :name, :price, :author, :genre, :author_id, :genre_id, :id, :order, :item_objects,
+                 item_objects_attributes: [:id, :item_type_id, :netto_price, :amount, :position, :description, :_destroy]
 
   #menu priority: 1
   #menu parent: "Authors"
@@ -74,7 +75,13 @@ ActiveAdmin.register Book do
             column :position
             column :id
             column :description
-            column :name
+            column :item_type_id
+            column :book
+            column do |id|
+              # "<a href='../item_objects/#{id.id.to_s}/edit'>edit</a>".html_safe
+              # link_to id.id, item_object_path(id: id.id) #unless id.id.nil?
+             link_to "edit",  edit_admin_item_object_path(id.id)
+            end
         end
       end
 
@@ -97,9 +104,28 @@ ActiveAdmin.register Book do
   # eigenes form fuer new + edit-funktion
   form do |f|
     f.inputs "Details" do
-      f.input :name, :label => "Title"
-      f.action :submit, label: "Create Featured Product", url: "some_url_for_create(@product)"
-    end
-  end
+      # f.input :name, :label => "Title"
+      f.input :id
+      f.input :name
+      f.input :price
+      f.input :author
+      f.input :genre
 
+      f.has_many :item_objects, allow_destroy: true, new_record: true do |a|
+        a.input :id
+        a.input :item_type
+        a.input :netto_price
+        a.input :amount
+        a.input :position
+        a.input :description
+        a.input :created_at, :input_html => { :disabled => true }, :as => :string
+        a.input :updated_at, :input_html => { :disabled => true }, :as => :string
+        # a.input :_destroy, :as => :boolean
+      end
+      # f.para 'text'.html_safe
+
+    end
+    f.actions
+  end
+        # f.action :submit, label: "Create Featured Product", url: "some_url_for_create(@product)"
 end
