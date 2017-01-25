@@ -67,7 +67,7 @@ ActiveAdmin.register Book do
     attributes_table do
       row :id
       row :name
-      row :price
+      row :price_sum_up
       row :author
       row :genre
       row :item_objects do |item|
@@ -101,13 +101,14 @@ ActiveAdmin.register Book do
     end
   end
 
+
   # eigenes form fuer new + edit-funktion
   form do |f|
     f.inputs "Details" do
       # f.input :name, :label => "Title"
       f.input :id
       f.input :name
-      f.input :price
+      f.input :price_sum_up
       f.input :author
       f.input :genre
 
@@ -123,7 +124,7 @@ ActiveAdmin.register Book do
         # a.input :_destroy, :as => :boolean
       end
       # f.para 'text'.html_safe
-
+      f.para "testlabel"
     end
     f.actions
   end
