@@ -73,9 +73,9 @@ ActiveAdmin.register Book do
       row :item_objects do |item|
         table_for item.item_objects.order("position").limit(10), sortable: true do
             column :position
-            column :id
-            column :description
             column :item_type_id
+            column :netto_price
+            column :description
             column :book
             column do |id|
               # "<a href='../item_objects/#{id.id.to_s}/edit'>edit</a>".html_safe
@@ -106,21 +106,21 @@ ActiveAdmin.register Book do
   form do |f|
     f.inputs "Details" do
       # f.input :name, :label => "Title"
-      f.input :id
+      f.input :id, :input_html => { :disabled => true }
       f.input :name
       f.input :price_sum_up
       f.input :author
       f.input :genre
 
       f.has_many :item_objects, allow_destroy: true, new_record: true do |a|
-        a.input :id
+        a.input :id, :input_html => { :disabled => true }
         a.input :item_type
         a.input :netto_price
         a.input :amount
         a.input :position
         a.input :description
-        a.input :created_at, :input_html => { :disabled => true }, :as => :string
-        a.input :updated_at, :input_html => { :disabled => true }, :as => :string
+        # a.input :created_at, :input_html => { :disabled => true }, :as => :string
+        # a.input :updated_at, :input_html => { :disabled => true }, :as => :string
         # a.input :_destroy, :as => :boolean
       end
       # f.para 'text'.html_safe
