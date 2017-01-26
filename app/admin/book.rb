@@ -74,7 +74,7 @@ ActiveAdmin.register Book do
         table_for item.item_objects.order("position").limit(10), sortable: true do
             column :position
             column :item_type_id
-            column :netto_price
+            column :netto_price # , class: 'report_text_right'
             column :description
             column :book
             column do |id|
@@ -98,7 +98,18 @@ ActiveAdmin.register Book do
 
       row :created_at
       row :updated_at
+
+      # if invoice.accounting_relevant?
+      row 'ODT-Vorlage' do |invoice|
+        # if invoice.invoice?
+        link_to 'ODT-Vorlage herunterladen', action: :generate_book_odt
+        # else
+        # link_to 'ODT-Vorlage herunterladen', action: :generate_reverse_odt if invoice.reverse?
+        # end
+      end
+      # end
     end
+
   end
 
 
@@ -129,4 +140,11 @@ ActiveAdmin.register Book do
     f.actions
   end
         # f.action :submit, label: "Create Featured Product", url: "some_url_for_create(@product)"
+
+  member_action :generate_book_odt do
+    book_generator = OdfGenerator.new("#{Rails.root}/Vorlagen/Standard.odt")
+    book = Book.find(params[:id])
+    send_data book_generator.stream(book), type: 'application/vnd.oasis.opendocument.text', disposition: "attachment;filename=#{book.name}.odt"
+  end
+
 end
