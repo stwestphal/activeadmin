@@ -38,7 +38,7 @@ ActiveAdmin.register Book do
     column :name
     column :author
     column :genre
-    column :price
+    column :price_sum
     selectable_column
     actions
   end
@@ -67,7 +67,7 @@ ActiveAdmin.register Book do
     attributes_table do
       row :id
       row :name
-      row :price_sum_up
+      row :price_sum
       row :author
       row :genre
       row :item_objects do |item|
@@ -119,7 +119,7 @@ ActiveAdmin.register Book do
       # f.input :name, :label => "Title"
       f.input :id, :input_html => { :disabled => true }
       f.input :name
-      f.input :price_sum_up
+      f.input :price_sum
       f.input :author
       f.input :genre
 
