@@ -34,7 +34,9 @@ class OdfGenerator
 
        r.add_table("LineItems", @customer.item_objects.order("position"), :header => true) do |t|
         t.add_column(:position, :position)
-        t.add_column(:description, :description)
+        t.add_column :description do |i|
+            i.item_type.name
+        end
         t.add_column(:amount, :amount)
         t.add_column(:netto_price, :netto_price)
         # t.add_column(:item_type, :item_type)
