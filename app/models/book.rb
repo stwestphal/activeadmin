@@ -10,9 +10,16 @@ class Book < ApplicationRecord
     price=0
     book_id = self.id
     ite_array = ItemObject.select{|i| i.book_id==book_id}
-    ite_array.each do |a|
-      price+=a.netto_price
+    if ite_array.count == 0
+      # binding.pry
+      price= self.price
+    else
+      ite_array.each do |a|
+        price+=a.netto_price
+      end
+
     end
+
 
     price
   end

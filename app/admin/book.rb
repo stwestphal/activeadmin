@@ -43,7 +43,7 @@ ActiveAdmin.register Book do
     actions
   end
 
- rows=""
+ # rows=""
   # ite =proc {ItemObject.distinct.pluck :item_type.to_s}
   #ite = ItemObject.pluck :item_type_id, :book_id, :position, :netto_price, :amount, :description
   # ite =ItemObject.select(:item_type)
@@ -54,15 +54,15 @@ ActiveAdmin.register Book do
 
   # neues eigenes form fuer die view-funktion
   show do
-    book_id = Book.find(params[:id]).id
-    ite = ItemObject.select{ |i| i.book_id == book_id}
-    itemtype_id = 1
-    itemtype = ItemType.select{ |i| i.id == itemtype_id}
-    itemtype = ItemType.find(params[:id]).name
-    ite = ite.pluck :item_type_id, :book_id, :position, :netto_price, :amount, :description
-     ite.each do |a|
-      rows+=a.to_s
-    end
+    # book_id = Book.find(params[:id]).id
+    # ite = ItemObject.select{ |i| i.book_id == book_id}
+    # itemtype_id = 1
+    # itemtype = ItemType.select{ |i| i.id == itemtype_id}
+    # itemtype = ItemType.find(params[:id]).name
+    # ite = ite.pluck :item_type_id, :book_id, :position, :netto_price, :amount, :description
+    #  ite.each do |a|
+    #   rows+=a.to_s
+    # end
 
     attributes_table do
       row :id
@@ -85,16 +85,16 @@ ActiveAdmin.register Book do
         end
       end
 
-      row "items" do
-        table do
-          ite.each do |r|
-            tr do
-              th r.to_s
-              td itemtype.to_s
-            end
-          end
-        end
-      end
+      # row "items" do
+      #   table do
+      #     ite.each do |r|
+      #       tr do
+      #         th r.to_s
+      #         td itemtype.to_s
+      #       end
+      #     end
+      #   end
+      # end
 
       row :created_at
       row :updated_at
